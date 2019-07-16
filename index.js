@@ -1,10 +1,14 @@
 const express = require('express');
 const path = require('path');
 const members = require('./Members');
+const logger = require('./middleware/logger');
 
 const app = new express();
 
 const PORT = process.env.PORT || 5000;
+
+// Init MW
+app.use(logger);
 
 // set static folder
 app.use(express.static(path.join(__dirname, 'public')));
