@@ -5,8 +5,7 @@ const app = new express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
