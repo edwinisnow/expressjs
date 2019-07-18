@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 5000;
 // Init MiddleWare
 app.use(logger);
 
+// Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // Members API Routes
 app.use('/api/members', require('./routes/api/members'));
 
